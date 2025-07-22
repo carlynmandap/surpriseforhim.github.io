@@ -1,15 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="withd-device-withd, initial-scale=1.0">
-    <title>My Victor King</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
-    <header>
-        <h1>Hi Beb!</h1>
-        <p>This is for you...</p>
-    </header>
+
+    <!-- First Modal -->
+    <div class="center-box" id="modalOne">
+        <h1>Happy Birthday, Beb!</h1>
+        <img src="images/cake.gif" alt="Birthday Image" class="birthday-img" />
+        <p>Click the music icon for better experience 🎵</p>
+        <button id="playBtn" onclick="playAudio()" type="button">Play Music</button>
+    </div>
+
+    <!-- Hidden Love Letter Section -->
+    <div id="letterSection" class="hidden">
+        <h1>I have a letter for you...</h1>
+        <img src="images/letter.gif" alt="Love Letter GIF" class="letter-gif" />
+        <p>Do you want to open it? 💌</p>
+        <div class="btn-group">
+            <button id="yesBtn">Yes, why not 😍</button>
+            <button id="noBtn">Nahhhh, eww 🙈</button>
+        </div>
+    </div>
+
+    <!-- Nahh Modal -->
+    <div id="nahhModal" class="hidden modal-popup">
+        <div class="modal-content">
+            <span class="close-btn" id="closeNahhModal">&times;</span>
+            <img src="images/chance.gif" alt="Sad GIF" class="modal-image" />
+            <p class="modal-text">Awwww🥺</p>
+            <p class="modal-text">GIVE ME A CHANCE PLEASE!!!</p>
+        </div>
+    </div>
+
+    <audio id="bgMusic">
+        <source src="music/music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
