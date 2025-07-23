@@ -6,10 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday!</title>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bitcount+Prop+Double:wght@100..900&family=Dancing+Script&family=Delicious+Handrawn&family=Delius&family=Outfit:wght@100..900&family=Pacifico&family=Special+Gothic+Expanded+One&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
+
+    <!-- Home Icon -->
+    <a href="index.html" class="home-icon" title="Back to Main">
+        <i class="fas fa-home"></i>
+    </a>
 
     <!-- First Modal -->
     <div class="center-box" id="modalOne">
@@ -61,7 +69,7 @@
     <!-- Video Section -->
     <div id="videoSection" class="hidden video-container">
         <h2>Our Moments Together 🎬</h2>
-        <video controls loop muted width="100%">
+        <video id="memoryVideo" autoplay muted loop playsinline controls width="100%">
             <source src="videos/vid.mp4" type="video/mp4" />
             Your browser does not support the video tag.
         </video>

@@ -63,14 +63,13 @@ window.addEventListener('DOMContentLoaded', () => {
                 videoSection.classList.remove("hidden");
                 videoSection.classList.add("slide-up");
 
-                // Scroll into view
-                videoSection.scrollIntoView({ behavior: "smooth" });
-
-                // Play the video
-                const video = videoSection.querySelector("video");
+                const video = document.getElementById("memoryVideo");
                 if (video) {
-                    video.play();
+                    video.play().catch((err) => {
+                        console.log("Autoplay may be blocked until user interacts.");
+                    });
                 }
+
             }, 600); // Wait for fade-out to finish
         });
 
