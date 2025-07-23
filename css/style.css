@@ -1,0 +1,333 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: url('../images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* All Button Styling */
+button {
+    width: auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: #d55882;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background-color: #d24b78;
+}
+
+/* Fade animations */
+.fade-out {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    pointer-events: none;
+}
+
+.fade-in {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* H1 Styling */
+h1 {
+    font-size: 2.5rem;
+    font-family: 'Pacifico', cursive;
+    color: #d55882;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/*script.js*/
+.show-letter {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.6s ease forwards;
+
+}
+
+/* Optional keyframes (if using animation instead of transition) */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/*First Modal*/
+.center-box {
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    position: fixed;
+    z-index: 999;
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    position: fixed;
+    width: 100vw;
+    overflow-y: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.birthday-img {
+    width: 50%;
+    max-width: 200px;
+    height: auto;
+}
+
+#playBtn {
+    align-items: center;
+    gap: 10px;
+}
+
+#modalOne h1 {
+    font-size: 2.5rem;
+    margin: 10px auto;
+}
+
+/*Hidden Love Letter Section*/
+#letterSection {
+    display: none;
+    position: fixed;
+    /* Use fixed for consistent screen coverage */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.2);
+    text-align: center;
+    z-index: 999;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#letterSection h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+#letterSection p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    background-color: black;
+}
+
+.letter-gif {
+    width: 80%;
+    max-width: 300px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.btn-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/*nahhModal*/
+.modal-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+    /* Handles safe spacing on small screens */
+    box-sizing: border-box;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px 30px;
+    border-radius: 12px;
+    text-align: center;
+    position: relative;
+    max-width: 350px;
+    width: 100%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2.2rem;
+    cursor: pointer;
+    color: black;
+}
+
+.close-btn:hover {
+    color: #333;
+}
+
+.modal-image {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.modal-text {
+    font-size: 1.2rem;
+    color: #d55882;
+    font-weight: bold;
+    margin: 8px 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+    .modal-content {
+        padding: 16px 20px;
+    }
+
+    .close-btn {
+        font-size: 2rem;
+        top: 5px;
+        right: 10px;
+    }
+
+    .modal-text {
+        font-size: 1rem;
+    }
+}
+
+/* Letter Modal */
+.letter-style {
+    font-family: 'Delius', cursive;
+    background-color: #fff8dc;
+    border: 2px dashed #d55882;
+    padding: 30px;
+    font-size: 1.2rem;
+    position: relative;
+    max-height: 80vh;
+    overflow-y: auto;
+    max-width: 700px;
+    margin: 40px auto;
+    /* centers horizontally with margin at top */
+    box-sizing: border-box;
+}
+
+/* Responsive text alignment (not centered) */
+.letter-heading {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #d55882;
+    text-align: left;
+}
+
+.letter-message {
+    color: #333;
+    line-height: 1.6;
+    text-align: left;
+}
+
+/* Arrow styles */
+.next-arrow {
+    font-size: 4rem;
+    font-weight: 900;
+    color: #d55882;
+    cursor: pointer;
+    animation: slide-right 1.5s infinite;
+    margin-top: 40px;
+
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Slide Right Animation */
+@keyframes slide-right {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(10px);
+    }
+}
+
+/* Responsive tweak */
+@media screen and (max-width: 600px) {
+    .next-arrow {
+        font-size: 3rem;
+        margin-top: 30px;
+        justify-content: center;
+        /* Center on small screens */
+    }
+}
+
+
+/* Video Section */
+#videoSection {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Slide-up visible state */
+#videoSection.slide-up {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+.video-container {
+    margin: 50px auto;
+    text-align: center;
+    padding: 20px;
+    background: #fefefe;
+    border-radius: 15px;
+    max-width: 700px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.video-container h2 {
+    color: #d55882;
+    margin-bottom: 20px;
+}

@@ -5,326 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Surprise Page</title>
+    <link rel="stylesheet" href="css/surprise_style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
     <link
         href="https://fonts.googleapis.com/css2?family=Bitcount+Prop+Double:wght@100..900&family=Delicious+Handrawn&family=Delius&family=Outfit:wght@100..900&display=swap"
         rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Arial', sans-serif;
-            background: url('images/background.jpg') no-repeat center fixed;
-            color: #333;
-        }
-
-        .home-icon {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            font-size: 24px;
-            color: #fff;
-            text-decoration: none;
-            background: rgba(0, 0, 0, 0.4);
-            padding: 8px 12px;
-            border-radius: 10px;
-            z-index: 1000;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 80px auto;
-            padding: 5px 20px;
-            font-size: 1.2rem;
-            background-color: #ffff;
-        }
-
-        .container h3 {
-            font-family: "Outfit", sans-serif;
-            color: #4682b4;
-        }
-
-        .header h1 {
-            text-align: center;
-            margin-top: 100px;
-            font-family: 'Special Gothic Expanded One';
-            color: #4682b4;
-        }
-
-        .header p {
-            text-align: center;
-            max-width: 800px;
-            margin: 20px auto;
-        }
-
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            padding: 0 4px;
-            margin: 0 auto;
-        }
-
-        /* Create four equal columns that sits next to each other */
-        .column {
-            -ms-flex: 25%;
-            /* IE10 */
-            flex:
-                25%;
-            max-width: 25%;
-        }
-
-        .column img {
-            vertical-align: middle;
-            width: 100%;
-        }
-
-        /* Responsive layout - makes a two
-        column-layout instead of four columns */
-        @media screen and (max-width: 800px) {
-            .column {
-                -ms-flex: 50%;
-                flex:
-                    50%;
-                max-width: 50%;
-            }
-        }
-
-        /* Responsive layout - makes the two columns stack on top of each other instead of next
-        to each other */
-        @media screen and (max-width: 600px) {
-            .column {
-                -ms-flex: 100%;
-                flex: 100%;
-                max-width: 100%;
-            }
-        }
-
-        .photo-container {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .photo-container img {
-            width: 100%;
-            transition:
-                transform 0.3s ease;
-        }
-
-        .photo-container:hover img {
-            transform: scale(1.03);
-        }
-
-        .caption {
-            position: absolute;
-            bottom: 10px;
-            left: 80%;
-            transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.6);
-            color: white;
-            font-size:
-                24px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            pointer-events: none;
-        }
-
-        .photo-container:hover .caption {
-            opacity: 1;
-        }
-
-        .letter-section {
-            background: #ffff;
-            padding: 30px;
-        }
-
-        .letter-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items:
-                flex-start;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-
-        .letter-text {
-            position: relative;
-            flex: 1 1 400px;
-            /* allows it to grow but keeps minimum size */
-            min-height: 300px;
-            /* sets a base height */
-            max-width: 600px;
-            /* keeps it from getting too wide */
-            border: 2px dashed #4682b4;
-            border-radius: 12px;
-            background-color: #add8e6;
-            padding: 20px;
-            overflow: auto;
-            /* adds scroll if text overflows */
-            box-sizing: border-box;
-        }
-
-        .letter-text h2 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 2rem;
-        }
-
-
-        .heart {
-            position: absolute;
-            top: 0;
-            left: 0;
-            color: ffff;
-            font-size: 1.5rem;
-            animation: fall 5s linear forwards;
-            z-index: 0;
-        }
-
-        @keyframes fall {
-            0% {
-                transform: translateY(-10%);
-                opacity: 1;
-            }
-
-            100% {
-                transform:
-                    translateY(120%);
-                opacity: 0;
-            }
-        }
-
-        .countdown-box {
-            text-align: center;
-            font-size: 1rem;
-            color: #4682b4;
-            font-family: 'Bitcount Prop Double', sans-serif;
-        }
-
-        .countdown-box p {
-            text-align: center;
-            font-size: 1.2rem;
-            color: #4682b4;
-            font-family: 'Arial', sans-serif;
-            font-weight: bold;
-        }
-
-        .fake-ending {
-            text-align: center;
-        }
-
-        .fake-ending h2 {
-            font-size: 2rem;
-            margin-bottom: 10px;
-            font-family: 'Special Gothic Expanded One';
-            font-size: 4rem;
-            color: #4682b4;
-        }
-
-        .fake-ending p {
-            font-size:
-                1.2rem;
-            margin: 6px 0;
-        }
-
-        .signature {
-            margin-top: 10px;
-            font-style: italic;
-            font-size: 1.4rem;
-        }
-
-        .fake-divider {
-            margin-top: 30px;
-            font-size: 1.5rem;
-            color: #f783ac;
-            letter-spacing: 5px;
-        }
-
-        .final-question {
-            text-align:
-                center;
-            margin: 50px 0;
-            font-size: 5rem;
-        }
-
-        .gif-button-wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 10px;
-        }
-
-        .wait-gif {
-            width: 300px;
-            /* or 150px, depending on what looks good */
-            height: auto;
-        }
-
-        #openQuestionBtn {
-            margin-top: 10px;
-            padding: 10px 20px;
-            font-size: 1rem;
-            border: none;
-            background-color: #4682b4;
-            color: white;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        #openQuestionBtn:hover {
-            background-color: #003366;
-        }
-
-        .modal {
-            display: none;
-            /* Hidden by default */
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color:
-                rgba(0, 0, 0, 0.6);
-            /* Black w/ opacity */
-        }
-
-        .modal-content {
-            background-color: #fff;
-            margin: 10% auto;
-            padding:
-                20px;
-            width: 80%;
-            max-width: 350px;
-            border-radius: 12px;
-            text-align: center;
-            position: relative;
-        }
-
-        .close {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 2.5rem;
-            cursor: pointer;
-            color: black;
-        }
-
-        .close:hover {
-            color: #333;
-        }
-
-        #letterParagraph {
-            border-right: 2px solid #333;
-            white-space: pre-wrap;
-            overflow: hidden;
-            font-family: 'Dancing Script', cursive;
-            white-space: pre-line;
-        }
-    </style>
 </head>
 
 <body>
@@ -333,17 +21,21 @@
         <i class="fas fa-home"></i>
     </a>
 
+    <!-- Header -->
+    <div class="header">
+        <h1 id="mainTitle">Hi Beb!</h1>
+        <p id="typedIntro" class="hidden"></p>
+    </div>
+
     <div class="container">
-        <!-- Header -->
-        <div class="header">
-            <h1>FOR MY BEB</h1>
-            <p>I just want to remind you how much you mean to me. This little page is filled with our memories, my
-                favorite
-                moments, and a letter from my heart to yours. 💕</p>
+        <div class="video-section hidden" id="videoSection">
+            <video width="100%" controls>
+                <source src="videos/vid.MP4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
-        <hr>
         <!-- Photo Grid -->
-        <h3>Some of My Favorite Photos of Us 📸</h3>
+        <!-- <h3>Some of My Favorite Photos of Us 📸</h3>
         <div class="row">
             <div class="column">
                 <div class="photo-container">
@@ -351,38 +43,41 @@
                     <p class="caption">heheheh</p>
                 </div>
                 <img src="images/ourphotos/2.JPEG" style="width:100%">
+                <img src="images/ourphotos/3.JPEG" style="width:100%">
+                <img src="images/ourphotos/4.JPEG" style="width:100%">
             </div>
             <div class="column">
-                <img src="images/ourphotos/2.JPEG" style="width:100%">
-                <img src="images/ourphotos/1.JPEG" style="width:100%">
+                <img src="images/ourphotos/7.JPEG" style="width:100%">
+                <img src="images/ourphotos/8.JPEG" style="width:100%">
+                <img src="images/ourphotos/9.JPEG" style="width:100%">
+                <img src="images/ourphotos/12.JPEG" style="width:100%">
+
             </div>
             <div class="column">
-                <img src="images/ourphotos/1.JPEG" style="width:100%">
-                <img src="images/ourphotos/2.JPEG" style="width:100%">
+                <img src="images/ourphotos/13.JPEG" style="width:100%">
+                <img src="images/ourphotos/14.JPEG" style="width:100%">
+                <img src="images/ourphotos/15.JPEG" style="width:100%">
+                <img src="images/ourphotos/16.JPEG" style="width:100%">
+
+
             </div>
             <div class="column">
-                <img src="images/ourphotos/1.JPEG" style="width:100%">
-                <img src="images/ourphotos/2.JPEG" style="width:100%">
+                <img src="images/ourphotos/17.JPEG" style="width:100%">
+                <img src="images/ourphotos/18.JPEG" style="width:100%">
+                <img src="images/ourphotos/11.JPEG" style="width:100%">
+                <img src="images/ourphotos/10.JPEG" style="width:100%">
 
             </div>
-        </div>
+        </div> -->
 
-        <div class="video-section">
-            <h3>Our Moments in Motion 🎥</h3>
-            <video width="100%" controls>
-                <source src="videos/vid1.MP4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-
-        <section class="letter-section" id="letterSection"></section>
+        <!-- <section class="letter-section" id="letterSection"></section>
         <div class="letter-wrapper">
             <div class="letter-text" id="typedLetter">
                 <h2>To the one who makes my heart smile...</h2>
                 <p id="letterParagraph"></p>
             </div>
             <div class="countdown-box">
-                <img src="images/waiting.gif" width="150px" style="margin-top: 45px;" />
+                <img src="images/gifs/waiting.gif" width="150px" style="margin-top: 45px;" />
                 <h2>Time Left Until We’re Together Again ⏳</h2>
                 <p id="countdownTimer"></p>
             </div>
@@ -403,31 +98,61 @@
             <h2>May question pala ako...</h2>
 
             <div class="gif-button-wrapper">
-                <img src="images/hehe.gif" alt="Wait!" class="wait-gif" />
+                <img src="images/gifs/hehe.gif" alt="Wait!" class="wait-gif" />
                 <button id="openQuestionBtn">Open mo to 😳</button>
             </div>
-        </section>
+        </section> -->
 
         <!-- Modal -->
-        <div id="questionModal" class="modal">
+        <!-- <div id="questionModal" class="modal">
             <div class="modal-content">
                 <span class="close"
                     onclick="document.getElementById('questionModal').style.display='none'">&times;</span>
-                <img src="images/dilab.gif" style="max-width: 100%; height: auto; margin-top: 40px" />
+                <img src="images/gifs/dilab.gif" style="max-width: 100%; height: auto; margin-top: 40px" />
                 <p>HAHAHHAHAHHA LABYU</p>
             </div>
-        </div>
+        </div> -->
 
 
     </div>
 
 
-    <audio id="bgMusic" loop autoplay>
+    <!-- <audio id="bgMusic" loop autoplay>
         <source src="music/music.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
-    </audio>
+    </audio> -->
 
     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const mainTitle = document.getElementById("mainTitle");
+            const text = "For this special day, I just want to remind you how much you mean to me. This little page is filled with our memories, my favorite moments, and a letter from my heart to yours. 💕";
+            const typedIntro = document.getElementById("typedIntro");
+            const videoSection = document.getElementById("videoSection");
+            let index = 0;
+
+            // Animate the title
+            setTimeout(() => {
+                mainTitle.classList.add("show");
+            }, 100); // slight delay for entrance
+
+            // Typing effect
+            setTimeout(() => {
+                typedIntro.classList.remove("hidden");
+
+                function typeNextLetter() {
+                    if (index < text.length) {
+                        typedIntro.innerHTML = text.substring(0, index + 1);
+                        index++;
+                        setTimeout(typeNextLetter, 50); // typing speed
+                    } else {
+                        // Show video after typing is done
+                        videoSection.classList.remove("hidden");
+                    }
+                }
+
+                typeNextLetter();
+            }, 1200); // wait for title animation before typing
+        });
         // Open modal when button is clicked
         document.getElementById("openQuestionBtn").addEventListener("click", function () {
             document.getElementById("questionModal").style.display = "block";
