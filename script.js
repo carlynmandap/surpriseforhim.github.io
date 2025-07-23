@@ -34,10 +34,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // Yes button
     yesBtn.addEventListener("click", () => {
-        letterSection.innerHTML = `
-            <h2 style="color: black;">Opening your surprise...</h2>
-            <img src="images/gifs/load.gif" alt="Loading hearts" style="width: 150px; height: auto; margin-bottom: 80px;" />
-        `;
+        document.getElementById("letterLoading").innerHTML = `
+    <h2 style="color: black;">Opening your surprise...</h2>
+    <img src="images/gifs/load.gif" alt="Loading hearts" style="width: 150px; height: auto; margin-bottom: 80px;" />
+`;
 
         setTimeout(() => {
             letterSection.classList.add("hidden");
@@ -74,4 +74,40 @@ window.addEventListener('DOMContentLoaded', () => {
         });
 
     }
+
+    // Typing Effect for Letter Modal
+    const typedLetter = document.getElementById("typedLetter");
+    const arrow = document.getElementById("showVideoSection");
+
+    const message = `For this special day, I just want to remind you how much you mean to me.\n\n\
+I made this little page, this tiny surprise because I wanted to do something a little extra for your birthday.\n\n\
+So embrace yourself, because this page is filled with our memories and all the love I have for you.`;
+
+    let i = 0;
+
+    function typeLetter() {
+        if (i < message.length) {
+            typedLetter.innerHTML += message.charAt(i) === "\n" ? "<br>" : message.charAt(i);
+            i++;
+            setTimeout(typeLetter, 40);
+        } else {
+            arrow.style.display = "block"; // show arrow after typing
+        }
+    }
+
+    // Observe when letter modal becomes visible
+    const observer = new MutationObserver(() => {
+        if (!document.getElementById("letterModal").classList.contains("hidden")) {
+            typedLetter.innerHTML = "";
+            i = 0;
+            arrow.style.display = "none";
+            typeLetter();
+        }
+    });
+
+    observer.observe(document.getElementById("letterModal"), {
+        attributes: true,
+        attributeFilter: ['class']
+    });
+
 });

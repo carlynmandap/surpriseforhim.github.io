@@ -132,12 +132,13 @@ h1 {
 /*Hidden Love Letter Section*/
 #letterSection {
     display: none;
-    position: fixed;
-    /* Use fixed for consistent screen coverage */
+    position: absolute;
+    /* changed from fixed to allow content to scroll */
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    min-height: 100vh;
+    /* use min-height instead of fixed height */
     background-color: rgba(255, 255, 255, 0.2);
     text-align: center;
     z-index: 999;
@@ -145,6 +146,7 @@ h1 {
     box-sizing: border-box;
     overflow-y: auto;
     color: white;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -279,6 +281,14 @@ h1 {
 }
 
 /* Arrow styles */
+/* Arrow wrapper to align it right */
+.arrow-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+/* Arrow styles */
 .next-arrow {
     font-size: 4rem;
     font-weight: 900;
@@ -286,10 +296,8 @@ h1 {
     cursor: pointer;
     animation: slide-right 1.5s infinite;
     margin-top: 40px;
-
-    display: flex;
-    justify-content: flex-end;
 }
+
 
 /* Slide Right Animation */
 @keyframes slide-right {
@@ -306,13 +314,16 @@ h1 {
 
 /* Responsive tweak */
 @media screen and (max-width: 600px) {
+    .arrow-container {
+        justify-content: center;
+    }
+
     .next-arrow {
         font-size: 3rem;
         margin-top: 30px;
-        justify-content: center;
-        /* Center on small screens */
     }
 }
+
 
 
 /* Video Section */
@@ -320,6 +331,11 @@ h1 {
     opacity: 0;
     transform: translateY(100px);
     transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+#videoSection h2 {
+    font-family: 'Bitcount Prop Double', sans-serif;
+    font-size: 2rem;
 }
 
 /* Slide-up visible state */

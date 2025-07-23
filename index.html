@@ -36,6 +36,10 @@
             <button id="yesBtn">Yes, why not 😍</button>
             <button id="noBtn">Nahhhh, eww 🙈</button>
         </div>
+        <div id="letterSection" class="hidden">
+            <div id="letterLoading"></div> <!-- This is where you'll inject the loading content -->
+        </div>
+
     </div>
 
     <!-- Nahh Modal -->
@@ -53,15 +57,12 @@
         <div class="modal-content letter-style">
             <!-- Removed close icon -->
             <h2 class="letter-heading">For my bebi,</h2>
-            <p class="letter-message">
-                For this special day, I just want to remind you how much you mean to me. <br><br>
-                I made this little page, this tiny surprise because I wanted to do something a little extra for your
-                birthday. <br><br>
-                Embrace yourself because this page is filled with our memories and my love for you.
-            </p>
-
+            <p id="typedLetter" class="letter-message"></p>
             <!-- Arrow to proceed -->
-            <div class="next-arrow" id="showVideoSection">→</div>
+            <div class="arrow-container">
+                <div class="next-arrow" id="showVideoSection" style="display: none;">→</div>
+            </div>
+
         </div>
     </div>
 
