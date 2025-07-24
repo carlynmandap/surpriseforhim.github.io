@@ -57,7 +57,7 @@ window.addEventListener('DOMContentLoaded', () => {
                         console.log("Autoplay blocked.");
                     });
                 }
-            }, 4000);
+            }, 3000);
         });
     }
 
@@ -89,6 +89,49 @@ So embrace yourself, because this page is filled with our memories and all the l
     observer.observe(letterModal, {
         attributes: true,
         attributeFilter: ['class']
+    });
+
+    // Pagination for video and photo sections
+    const paginationLinks = document.querySelectorAll('.pagination a');
+    const sections = {
+        1: document.getElementById('videoSection'),
+        2: document.getElementById('photoSection'),
+        // add pages 3 & 4 here later if needed
+    };
+
+    // Pagination for switching between sections
+    document.addEventListener('click', function (e) {
+        if (e.target.matches('.pagination a')) {
+            e.preventDefault();
+            const page = e.target.getAttribute('data-page');
+
+            // Sections map: Add/remove more pages as needed
+            const sections = {
+                1: document.getElementById('videoSection'),
+                2: document.getElementById('photoSection'),
+                // You can add 3: ..., 4: ... later
+            };
+
+            // Hide all sections
+            Object.values(sections).forEach(sec => {
+                if (sec) sec.classList.add('hidden');
+            });
+
+            // Show the selected section
+            if (sections[page]) {
+                sections[page].classList.remove('hidden');
+            }
+
+            // Update all pagination links to remove active
+            document.querySelectorAll('.pagination a').forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // Activate the clicked link(s)
+            document.querySelectorAll(`.pagination a[data-page="${page}"]`).forEach(link => {
+                link.classList.add('active');
+            });
+        }
     });
 
 });
