@@ -314,7 +314,7 @@ h1 {
 
 /* Arrow styles */
 /* Arrow wrapper to align it right */
-.arrow-container {
+.surprise-container {
     display: flex;
     justify-content: flex-end;
     width: 100%;
@@ -322,14 +322,40 @@ h1 {
 
 /* Arrow styles */
 .next-arrow {
-    font-size: 4rem;
+    font-size: 2.5rem;
     font-weight: 900;
     color: #d55882;
     cursor: pointer;
     animation: slide-right 1.5s infinite;
-    margin-top: 40px;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
 }
 
+.pagination {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.pagination a {
+    color: black;
+    display: inline-block;
+    /* Remove float and use inline-block for centering */
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    float: none;
+    /* Remove float */
+}
+
+.pagination a.active {
+    background-color: #d55882;
+    color: white;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+}
 
 /* Slide Right Animation */
 @keyframes slide-right {
@@ -357,34 +383,21 @@ h1 {
 }
 
 /* Video Section */
-#videoSection {
-    opacity: 0;
-    transform: translateY(100px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-#videoSection h2 {
-    font-family: 'Bitcount Prop Double', sans-serif;
-    font-size: 2rem;
-}
-
-/* Slide-up visible state */
-#videoSection.slide-up {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 .video-container {
-    margin: 50px auto;
     text-align: center;
     padding: 20px;
     background: #fefefe;
     border-radius: 15px;
     max-width: 700px;
+    position: absolute;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    z-index: 1000;
 }
 
-.video-container h2 {
+#videoSection h2 {
+    font-family: 'Bitcount Prop Double', sans-serif;
+    font-size: 2.5rem;
     color: #d55882;
     margin-bottom: 20px;
 }

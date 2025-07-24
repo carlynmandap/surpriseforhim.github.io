@@ -19,6 +19,10 @@
         <i class="fas fa-home"></i>
     </a>
 
+    <!-- <div id="letterSection" class="hidden">
+        <div id="letterLoading"></div>
+    </div> -->
+
     <!-- First Modal -->
     <div class="center-box" id="modalOne">
         <h1>Happy Birthday, Beb!</h1>
@@ -35,9 +39,6 @@
         <div class="btn-group">
             <button id="yesBtn">Yes, why not 😍</button>
             <button id="noBtn">Nahhhh, eww 🙈</button>
-        </div>
-        <div id="letterSection" class="hidden">
-            <div id="letterLoading"></div>
         </div>
     </div>
 
@@ -56,7 +57,7 @@
         <div class="modal-content letter-style">
             <h2 class="letter-heading">For my bebi,</h2>
             <p id="typedLetter" class="letter-message"></p>
-            <div class="arrow-container">
+            <div class="surprise-container">
                 <!--<div class="next-arrow" id="showVideoSection" style="display: none;">→</div>-->
                 <button id="showVideoSection">Open Surprise😍</button>
             </div>
@@ -68,13 +69,20 @@
     <!-- Video Section -->
     <div id="videoSection" class="hidden video-container">
         <h2>Our Moments Together 🎬</h2>
-        <video id="memoryVideo" autoplay muted loop playsinline controls width="100%">
-            <source src="videos/vid2.mp4" type="video/mp4" />
+        <video id="memoryVideo" autoplay muted loop playsinline no-controls width="100%">
+            <source src="videos/vid2.MP4" type="video/mp4" />
             Your browser does not support the video tag.
         </video>
         <p class="video-caption">
             Here’s to all the laughs, memories, and love we’ve shared. Watch this and smile hehehehe
         </p>
+        <!-- <div class="next-arrow" id="showPhotoSection">→</div> -->
+        <div class="pagination">
+            <a href="#">1</a>
+            <a class="active" href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+        </div>
     </div>
 
     <audio id="bgMusic">
