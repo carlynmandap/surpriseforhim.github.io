@@ -137,16 +137,13 @@ h1 {
     margin: 10px auto;
 }
 
-/*Hidden Love Letter Section*/
 #letterSection {
-    display: none;
+    /* remove display: none; */
     position: absolute;
-    /* changed from fixed to allow content to scroll */
     top: 0;
     left: 0;
     width: 100%;
     min-height: 100vh;
-    /* use min-height instead of fixed height */
     background-color: rgba(255, 255, 255, 0.2);
     text-align: center;
     z-index: 999;
@@ -154,12 +151,16 @@ h1 {
     box-sizing: border-box;
     overflow-y: auto;
     color: white;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+
+#letterSection.hidden {
+    display: none !important;
+}
+
 
 #letterSection h1 {
     font-size: 2.5rem;
@@ -400,4 +401,37 @@ h1 {
     font-size: 2.5rem;
     color: #d55882;
     margin-bottom: 20px;
+}
+
+#loadingSurprise {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-top: 20px;
+    padding: 10px;
+    max-width: 90vw;
+    width: 100%;
+    box-sizing: border-box;
+    color: white;
+    font-family: "Outfit", sans-serif;
+}
+
+.load-gif {
+    max-width: 200px;
+    /* Bigger max width */
+    width: 60vw;
+    /* Bigger relative width */
+    height: auto;
+    object-fit: contain;
+}
+
+/* Smaller devices */
+@media (max-width: 380px) {
+    .load-gif {
+        max-width: 100px;
+        width: 80vw;
+    }
 }

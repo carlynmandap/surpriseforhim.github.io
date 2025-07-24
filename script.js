@@ -24,7 +24,6 @@ window.addEventListener('DOMContentLoaded', () => {
     const arrowBtn = document.getElementById("showVideoSection");
     const typedLetter = document.getElementById("typedLetter");
 
-    // Nahhh button
     nahhBtn.addEventListener("click", () => {
         nahhModal.classList.remove("hidden");
     });
@@ -33,36 +32,33 @@ window.addEventListener('DOMContentLoaded', () => {
         nahhModal.classList.add("hidden");
     });
 
-    // Yes button
     yesBtn.addEventListener("click", () => {
-        letterSection.classList.add("hidden");
+        letterSection.classList.remove("hidden");
         letterModal.classList.remove("hidden");
     });
 
-    // Arrow click to show video
     if (arrowBtn) {
         arrowBtn.addEventListener("click", () => {
+            letterModal.classList.add("hidden");
+            letterSection.classList.add("hidden");
+            const loadingSurprise = document.getElementById("loadingSurprise");
+            if (loadingSurprise) {
+                loadingSurprise.classList.remove("hidden");
+            }
+
             setTimeout(() => {
-                letterModal.classList.add("hidden");
-                letterModal.classList.remove("fade-out");
-
-                letterSection.classList.add("hidden");
-                letterSection.innerHTML = ""; // Clear loading GIF/text
-
-                // Step 3: Show video section with slide-up effect
+                loadingSurprise.classList.add("hidden");
                 videoSection.classList.remove("hidden");
                 videoSection.classList.add("slide-up");
 
                 const video = document.getElementById("memoryVideo");
                 if (video) {
-                    video.play().catch((err) => {
-                        console.log("Autoplay may be blocked until user interacts.");
+                    video.play().catch(() => {
+                        console.log("Autoplay blocked.");
                     });
                 }
-
-            }, 600);
+            }, 4000);
         });
-
     }
 
     const message = `For this special day, I just want to remind you how much you mean to me.\n\n\
@@ -77,13 +73,12 @@ So embrace yourself, because this page is filled with our memories and all the l
             i++;
             setTimeout(typeLetter, 1);
         } else {
-            arrowBtn.style.display = "block"; // show arrow after typing
+            arrowBtn.style.display = "block";
         }
     }
 
-    // Observe when letter modal becomes visible
     const observer = new MutationObserver(() => {
-        if (!document.getElementById("letterModal").classList.contains("hidden")) {
+        if (!letterModal.classList.contains("hidden")) {
             typedLetter.innerHTML = "";
             i = 0;
             arrowBtn.style.display = "none";
@@ -91,7 +86,7 @@ So embrace yourself, because this page is filled with our memories and all the l
         }
     });
 
-    observer.observe(document.getElementById("letterModal"), {
+    observer.observe(letterModal, {
         attributes: true,
         attributeFilter: ['class']
     });
