@@ -31,12 +31,13 @@ body {
 button {
     width: auto;
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 18px;
     border: none;
     border-radius: 8px;
     background-color: #d55882;
     color: white;
     cursor: pointer;
+    font-family: "Outfit", sans-serif;
     transition: background 0.3s ease;
 }
 
@@ -114,6 +115,12 @@ h1 {
     align-items: center;
 }
 
+.center-box p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    font-family: "Outfit", sans-serif;
+}
+
 .birthday-img {
     width: 50%;
     max-width: 200px;
@@ -163,6 +170,7 @@ h1 {
     font-size: 1.2rem;
     margin-bottom: 20px;
     background-color: black;
+    font-family: "Outfit", sans-serif;
 }
 
 .letter-gif {
@@ -227,6 +235,7 @@ h1 {
     max-width: 350px;
     width: 100%;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    font-family: "Outfit", sans-serif;
 }
 
 .close-btn {
