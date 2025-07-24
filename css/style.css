@@ -41,7 +41,8 @@ button {
 }
 
 button:hover {
-    background-color: #d24b78;
+    background-color: #d7837f;
+    color: white;
 }
 
 /* Fade animations */
@@ -105,7 +106,7 @@ h1 {
     opacity: 1;
     transform: scale(1);
     transition: opacity 0.4s ease, transform 0.4s ease;
-    position: fixed;
+    position: absolute;
     width: 100vw;
     overflow-y: auto;
     flex-direction: column;
@@ -176,6 +177,28 @@ h1 {
     align-items: center;
     gap: 10px;
     margin-top: 10px;
+}
+
+#showVideoSection {
+    animation: pulse 2s infinite;
+}
+
+/* Keyframe for the pulse animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 /*nahhModal*/
@@ -324,8 +347,6 @@ h1 {
     }
 }
 
-
-
 /* Video Section */
 #videoSection {
     opacity: 0;
@@ -343,8 +364,6 @@ h1 {
     opacity: 1;
     transform: translateY(0);
 }
-
-
 
 .video-container {
     margin: 50px auto;

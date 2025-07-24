@@ -22,6 +22,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const letterSection = document.getElementById("letterSection");
     const videoSection = document.getElementById("videoSection");
     const arrowBtn = document.getElementById("showVideoSection");
+    const typedLetter = document.getElementById("typedLetter");
 
     // Nahhh button
     nahhBtn.addEventListener("click", () => {
@@ -34,24 +35,13 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // Yes button
     yesBtn.addEventListener("click", () => {
-        document.getElementById("letterLoading").innerHTML = `
-    <h2 style="color: black;">Opening your surprise...</h2>
-    <img src="images/gifs/load.gif" alt="Loading hearts" style="width: 150px; height: auto; margin-bottom: 80px;" />
-`;
-
-        setTimeout(() => {
-            letterSection.classList.add("hidden");
-            letterModal.classList.remove("hidden");
-        }, 2000);
+        letterSection.classList.add("hidden");
+        letterModal.classList.remove("hidden");
     });
 
     // Arrow click to show video
     if (arrowBtn) {
         arrowBtn.addEventListener("click", () => {
-            // Step 1: Fade out the letter modal
-            letterModal.classList.add("fade-out");
-
-            // Step 2: After fade, hide letter modal and show video section
             setTimeout(() => {
                 letterModal.classList.add("hidden");
                 letterModal.classList.remove("fade-out");
@@ -70,14 +60,10 @@ window.addEventListener('DOMContentLoaded', () => {
                     });
                 }
 
-            }, 600); // Wait for fade-out to finish
+            }, 600);
         });
 
     }
-
-    // Typing Effect for Letter Modal
-    const typedLetter = document.getElementById("typedLetter");
-    const arrow = document.getElementById("showVideoSection");
 
     const message = `For this special day, I just want to remind you how much you mean to me.\n\n\
 I made this little page, this tiny surprise because I wanted to do something a little extra for your birthday.\n\n\
@@ -89,9 +75,9 @@ So embrace yourself, because this page is filled with our memories and all the l
         if (i < message.length) {
             typedLetter.innerHTML += message.charAt(i) === "\n" ? "<br>" : message.charAt(i);
             i++;
-            setTimeout(typeLetter, 40);
+            setTimeout(typeLetter, 1);
         } else {
-            arrow.style.display = "block"; // show arrow after typing
+            arrowBtn.style.display = "block"; // show arrow after typing
         }
     }
 
@@ -100,7 +86,7 @@ So embrace yourself, because this page is filled with our memories and all the l
         if (!document.getElementById("letterModal").classList.contains("hidden")) {
             typedLetter.innerHTML = "";
             i = 0;
-            arrow.style.display = "none";
+            arrowBtn.style.display = "none";
             typeLetter();
         }
     });
