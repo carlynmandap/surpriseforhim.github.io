@@ -71,7 +71,7 @@ So embrace yourself, because this page is filled with our memories and all the l
         if (i < message.length) {
             typedLetter.innerHTML += message.charAt(i) === "\n" ? "<br>" : message.charAt(i);
             i++;
-            setTimeout(typeLetter, 1);
+            setTimeout(typeLetter, 60);
         } else {
             arrowBtn.style.display = "block";
         }
