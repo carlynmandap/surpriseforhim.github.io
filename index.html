@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday!</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -74,9 +74,7 @@
             <source src="videos/vid2.MP4" type="video/mp4" />
             Your browser does not support the video tag.
         </video>
-        <p class="video-caption">
-            Here’s to all the laughs, memories, and love we’ve shared. Watch this and smile hehehehe
-        </p>
+        <p>Here’s to all the laughs, memories, and love we’ve shared. Watch this and smile hehehehe</p>
         <!-- <div class="next-arrow" id="showPhotoSection">→</div> -->
         <div class="pagination">
             <a href="#" data-page="1">1</a>
@@ -88,75 +86,39 @@
 
     <!-- Photo Section -->
     <div id="photoSection" class="hidden photo-container">
-        <h2>Memory Timeline 📸</h2>
-        <ul>
-            <li>
-                <div class="year">
-                    <span>2025</span>
-                </div>
-                <div class="caption">
-                    <span>hehehe</span>
-                </div>
-                <div class="hover-img">
-                    <img src="images/ourphotos/10.JPEG" class="img-fluid">
-                </div>
-            </li>
-            <li>
-                <div class="year">
-                    <span>2024</span>
-                </div>
-                <div class="caption">
-                    <span>hehehe</span>
-                </div>
-                <div class="hover-img">
-                    <img src="images/ourphotos/10.JPEG" class="img-fluid">
-                </div>
-            </li>
-            <li>
-                <div class="year">
-                    <span>2023</span>
-                </div>
-                <div class="caption">
-                    <span>hehehe</span>
-                </div>
-                <div class="hover-img">
-                    <img src="images/ourphotos/10.JPEG" class="img-fluid">
-                </div>
-            </li>
-            <li>
-                <div class="year">
-                    <span>2022</span>
-                </div>
-                <div class="caption">
-                    <span>hehehe</span>
-                </div>
-                <div class="hover-img">
-                    <img src="images/ourphotos/10.JPEG" class="img-fluid">
-                </div>
-            </li>
-            <li>
-                <div class="year">
-                    <span>2021</span>
-                </div>
-                <div class="caption">
-                    <span>hehehe</span>
-                </div>
-                <div class="hover-img">
-                    <img src="images/ourphotos/10.JPEG" class="img-fluid">
-                </div>
-            </li>
-            <li>
-                <div class="year">
-                    <span>2020</span>
-                </div>
-                <div class="caption">
-                    <span>hehehe</span>
-                </div>
-                <div class="hover-img">
-                    <img src="images/ourphotos/10.JPEG" class="img-fluid">
-                </div>
-            </li>
-        </ul>
+        <h2>Our Journey Through Time 🕰️</h2>
+        <div class="timeline-wrapper">
+            <ul class="timeline-list">
+                <li data-img="images/ourphotos/1.JPEG" data-caption="We celebrated your big win together!">
+                    <span class="year">2025</span>
+                </li>
+                <li data-img="images/ourphotos/2.JPEG" data-caption="That unforgettable sunset walk...">
+                    <span class="year">2024</span>
+                </li>
+                <li data-img="images/ourphotos/5.JPEG" data-caption="We celebrated your big win together!">
+                    <span class="year">2023</span>
+                </li>
+                <li data-img="images/ourphotos/14.JPEG" data-caption="That unforgettable sunset walk...">
+                    <span class="year">2022</span>
+                </li>
+                <li data-img="images/ourphotos/4.JPEG" data-caption="We celebrated your big win together!">
+                    <span class="year">2021</span>
+                </li>
+                <li data-img="images/ourphotos/3.JPEG" data-caption="That unforgettable sunset walk...">
+                    <span class="year">2020</span>
+                </li>
+                <li data-img="images/ourphotos/12.JPEG" data-caption="That unforgettable sunset walk...">
+                    <span class="year">2019</span>
+                </li>
+            </ul>
+
+            <div class="tv-frame">
+                <img src="images/frame1.png" class="tv-border" alt="TV Frame">
+                <img id="previewImg" src="images/ourphotos/18.JPEG" class="tv-screen" alt="Memory Preview">
+                <div id="captionBox" class="caption-box">Hover on a year to see a memory...</div>
+            </div>
+        </div>
+
         <div class="pagination">
             <a href="#" data-page="1">1</a>
             <a href="#" data-page="2">2</a>
@@ -165,9 +127,7 @@
         </div>
     </div>
 
-
-
-    <audio id="bgMusic">
+    <audio id="bgMusic" loop>
         <source src="music/music1.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>

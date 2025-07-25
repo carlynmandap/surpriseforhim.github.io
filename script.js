@@ -144,4 +144,17 @@ So embrace yourself, because this page is filled with our memories and all the l
         }
     });
 
+    const previewImg = document.getElementById('previewImg');
+    const captionBox = document.getElementById('captionBox');
+
+    document.querySelectorAll('.timeline-list li').forEach(item => {
+        item.addEventListener('mouseenter', function () {
+            const imgSrc = this.getAttribute('data-img');
+            const caption = this.getAttribute('data-caption');
+            previewImg.src = imgSrc;
+            captionBox.textContent = caption;
+        });
+    });
+
+
 });
