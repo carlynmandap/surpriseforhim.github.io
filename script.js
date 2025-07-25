@@ -71,7 +71,7 @@ So embrace yourself, because this page is filled with our memories and all the l
         if (i < message.length) {
             typedLetter.innerHTML += message.charAt(i) === "\n" ? "<br>" : message.charAt(i);
             i++;
-            setTimeout(typeLetter, 60);
+            setTimeout(typeLetter, 6);
         } else {
             arrowBtn.style.display = "block";
         }
@@ -99,18 +99,26 @@ So embrace yourself, because this page is filled with our memories and all the l
         // add pages 3 & 4 here later if needed
     };
 
+    // Function to update pagination active link
+    function updatePagination(page) {
+        // Update all pagination links to remove active
+        document.querySelectorAll('.pagination a').forEach(link => {
+            link.classList.remove('active');
+        });
+
+        // Activate the clicked link(s)
+        document.querySelectorAll(`.pagination a[data-page="${page}"]`).forEach(link => {
+            link.classList.add('active');
+        });
+    }
+
+
     // Pagination for switching between sections
     document.addEventListener('click', function (e) {
+        // When a pagination link is clicked
         if (e.target.matches('.pagination a')) {
             e.preventDefault();
             const page = e.target.getAttribute('data-page');
-
-            // Sections map: Add/remove more pages as needed
-            const sections = {
-                1: document.getElementById('videoSection'),
-                2: document.getElementById('photoSection'),
-                // You can add 3: ..., 4: ... later
-            };
 
             // Hide all sections
             Object.values(sections).forEach(sec => {
@@ -122,16 +130,24 @@ So embrace yourself, because this page is filled with our memories and all the l
                 sections[page].classList.remove('hidden');
             }
 
-            // Update all pagination links to remove active
-            document.querySelectorAll('.pagination a').forEach(link => {
-                link.classList.remove('active');
+            // Update the active pagination link
+            updatePagination(page);
+        }
+
+        // Handle "Open Surprise" button click to show video section and update pagination
+        if (e.target.id === 'showVideoSection') {
+            e.preventDefault();
+
+            // Hide all sections
+            Object.values(sections).forEach(sec => {
+                if (sec) sec.classList.add('hidden');
             });
 
-            // Activate the clicked link(s)
-            document.querySelectorAll(`.pagination a[data-page="${page}"]`).forEach(link => {
-                link.classList.add('active');
-            });
+            // Show the video section
+            sections[1].classList.remove('hidden');
+
+            // Update the active pagination link
+            updatePagination(1);
         }
     });
-
 });
