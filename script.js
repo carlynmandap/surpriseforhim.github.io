@@ -23,6 +23,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const videoSection = document.getElementById("videoSection");
     const arrowBtn = document.getElementById("showVideoSection");
     const typedLetter = document.getElementById("typedLetter");
+    let surpriseTimeoutId;
 
     nahhBtn.addEventListener("click", () => {
         nahhModal.classList.remove("hidden");
@@ -46,7 +47,13 @@ window.addEventListener('DOMContentLoaded', () => {
                 loadingSurprise.classList.remove("hidden");
             }
 
-            setTimeout(() => {
+            // Clear any existing timeout if the user clicked the button again
+            if (surpriseTimeoutId) {
+                clearTimeout(surpriseTimeoutId);
+            }
+
+            // Set a new timeout to show the video after 3 seconds
+            surpriseTimeoutId = setTimeout(() => {
                 loadingSurprise.classList.add("hidden");
                 videoSection.classList.remove("hidden");
                 videoSection.classList.add("slide-up");
@@ -113,7 +120,6 @@ So embrace yourself, because this page is filled with our memories and all the l
     }
 
 
-    // Pagination for switching between sections
     document.addEventListener('click', function (e) {
         // When a pagination link is clicked
         if (e.target.matches('.pagination a')) {
@@ -124,6 +130,17 @@ So embrace yourself, because this page is filled with our memories and all the l
             Object.values(sections).forEach(sec => {
                 if (sec) sec.classList.add('hidden');
             });
+
+            // Hide loadingSurprise if it's visible
+            const loadingSurprise = document.getElementById("loadingSurprise");
+            if (loadingSurprise && !loadingSurprise.classList.contains('hidden')) {
+                loadingSurprise.classList.add('hidden');
+            }
+
+            // Clear any active timeout when switching pages
+            if (surpriseTimeoutId) {
+                clearTimeout(surpriseTimeoutId);
+            }
 
             // Show the selected section
             if (sections[page]) {
@@ -146,8 +163,20 @@ So embrace yourself, because this page is filled with our memories and all the l
             // Show the video section
             sections[1].classList.remove('hidden');
 
+            // Hide loadingSurprise if it's visible (important for the next page switch)
+            const loadingSurprise = document.getElementById("loadingSurprise");
+            if (loadingSurprise && !loadingSurprise.classList.contains('hidden')) {
+                loadingSurprise.classList.add('hidden');
+            }
+
+            // Clear any active timeout when switching pages
+            if (surpriseTimeoutId) {
+                clearTimeout(surpriseTimeoutId);
+            }
+
             // Update the active pagination link
             updatePagination(1);
         }
     });
+
 });
