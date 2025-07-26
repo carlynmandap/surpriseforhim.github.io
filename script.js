@@ -102,7 +102,7 @@ So embrace yourself, because this page is filled with our memories and all the l
         attributeFilter: ['class']
     });
 
-    const previewStack = document.getElementById('previewStack');
+    const imageHolder = document.getElementById('imageHolder');
     const captionBox = document.getElementById('captionBox');
 
     document.querySelectorAll('.timeline-list li').forEach(item => {
@@ -110,32 +110,27 @@ So embrace yourself, because this page is filled with our memories and all the l
             const images = this.getAttribute('data-images').split(',');
             const captions = this.getAttribute('data-captions').split(',');
 
-            previewStack.innerHTML = '';
+            // Clear previous images only
+            imageHolder.innerHTML = '';
+            captionBox.textContent = "Click an image to see the caption";
 
             images.forEach((imgSrc, index) => {
                 const imgElement = document.createElement('img');
-                imgElement.src = imgSrc;
+                imgElement.src = imgSrc.trim();
                 imgElement.classList.add('visible');
-                imgElement.setAttribute('data-caption', captions[index]);
+                imgElement.setAttribute('data-caption', captions[index]?.trim() || 'No caption');
 
+                // When image is clicked, update caption
                 imgElement.addEventListener('click', function () {
                     const caption = this.getAttribute('data-caption');
                     captionBox.textContent = caption;
                 });
 
-                previewStack.appendChild(imgElement);
-
-                setTimeout(() => {
-                    imgElement.classList.add('visible');
-                }, index * 300);
+                imageHolder.appendChild(imgElement);
             });
         });
-
-        item.addEventListener('mouseleave', function () {
-            previewStack.innerHTML = '';
-            captionBox.textContent = "Hover on a year to see memories..."; // Reset caption
-        });
     });
+
 
     const paginationLinks = document.querySelectorAll('.pagination a');
     const sections = {
@@ -192,19 +187,6 @@ So embrace yourself, because this page is filled with our memories and all the l
         }
     });
 
-    // const previewImg = document.getElementById('previewImg');
-    // const captionBox = document.getElementById('captionBox');
-
-    // document.querySelectorAll('.timeline-list li').forEach(item => {
-    //     item.addEventListener('mouseenter', function () {
-    //         const imgSrc = this.getAttribute('data-img');
-    //         const caption = this.getAttribute('data-caption');
-    //         previewImg.src = imgSrc;
-    //         captionBox.textContent = caption;
-    //     });
-    // });
-
-    // Modal handling
     const giftEmoji = document.getElementById('giftEmoji');
     const giftModal = document.getElementById('gift-modal');
     const closeModal = document.getElementById('close-modal');
