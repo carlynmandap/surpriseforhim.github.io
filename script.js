@@ -82,7 +82,7 @@ So embrace yourself, because this page is filled with our memories and all the l
         if (i < message.length) {
             typedLetter.innerHTML += message.charAt(i) === "\n" ? "<br>" : message.charAt(i);
             i++;
-            setTimeout(typeLetter, 6);
+            setTimeout(typeLetter, 60);
         } else {
             arrowBtn.style.display = "block";
         }
@@ -106,7 +106,8 @@ So embrace yourself, because this page is filled with our memories and all the l
     const sections = {
         1: document.getElementById('videoSection'),
         2: document.getElementById('photoSection'),
-        3: document.getElementById('bdayLetter')
+        3: document.getElementById('bdayLetter'),
+        4: document.getElementById('lastSection')
     };
 
     function updatePagination(page) {

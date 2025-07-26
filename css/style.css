@@ -2,38 +2,52 @@ body {
     margin: 0;
     padding: 0;
     font-family: "Outfit", sans-serif;
-    background: url('../images/background.jpg') no-repeat center center fixed;
+    background: url('../images/background.jpg') no-repeat center center;
     background-size: cover;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    body {
+        background-size: cover;
+        background-position: center center;
+    }
 }
 
 .home-icon {
     position: fixed;
-    top: 20px;
-    left: 20px;
-    font-size: 24px;
+    top: 1.25rem;
+    left: 1.25rem;
+    font-size: 1.5rem;
     color: #fff;
     text-decoration: none;
     background: rgba(0, 0, 0, 0.4);
-    padding: 8px 12px;
-    border-radius: 10px;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.625rem;
     z-index: 2000;
+}
+
+@media (max-width: 480px) {
+    .home-icon {
+        font-size: 1.25rem;
+        padding: 0.375rem 0.625rem;
+    }
 }
 
 .hidden {
     display: none !important;
 }
 
-/* All Button Styling */
 button {
     width: auto;
-    padding: 10px 20px;
-    font-size: 18px;
+    padding: 0.625rem 1.25rem;
+    font-size: 1.125rem;
     border: none;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     background-color: #d55882;
     color: white;
     cursor: pointer;
@@ -41,12 +55,18 @@ button {
     transition: background 0.3s ease;
 }
 
-button:hover {
-    background-color: #ec3b83;
-    color: white;
+@media (max-width: 480px) {
+    button {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+    }
 }
 
-/* Fade animations */
+
+button:hover {
+    background-color: #ec3b83;
+}
+
 .fade-out {
     opacity: 0;
     transform: scale(0.95);
@@ -60,15 +80,13 @@ button:hover {
     transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-/* H1 Styling */
 h1 {
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 5vw, 2.5rem);
     font-family: 'Pacifico', cursive;
     color: #d55882;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-/*script.js*/
 .show-letter {
     display: flex !important;
     flex-direction: column;
@@ -78,7 +96,6 @@ h1 {
 
 }
 
-/* Optional keyframes (if using animation instead of transition) */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -91,7 +108,6 @@ h1 {
     }
 }
 
-/*First Modal*/
 .center-box {
     background-color: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
@@ -138,7 +154,6 @@ h1 {
 }
 
 #letterSection {
-    /* remove display: none; */
     position: absolute;
     top: 0;
     left: 0;
@@ -192,7 +207,6 @@ h1 {
     animation: pulse 2s infinite;
 }
 
-/* Keyframe for the pulse animation */
 @keyframes pulse {
     0% {
         transform: scale(1);
@@ -221,11 +235,9 @@ h1 {
     justify-content: center;
     z-index: 1000;
     padding: 20px;
-    /* Handles safe spacing on small screens */
     box-sizing: border-box;
 }
 
-/*nahhModal*/
 .nah-modal-popup {
     position: fixed;
     top: 0;
@@ -237,26 +249,24 @@ h1 {
     justify-content: center;
     z-index: 1000;
     padding: 20px;
-    /* Handles safe spacing on small screens */
     box-sizing: border-box;
 }
 
 .modal-content {
     background: white;
-    padding: 20px 30px;
-    border-radius: 12px;
+    padding: 1.25rem 1.875rem;
+    border-radius: 0.75rem;
     text-align: center;
     position: relative;
-    max-width: 350px;
+    max-width: 21.875rem;
     width: 100%;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    font-family: "Outfit", sans-serif;
 }
 
 .close-btn {
     position: absolute;
-    top: 10px;
-    right: 15px;
+    top: 0.625rem;
+    right: 1rem;
     font-size: 2.2rem;
     cursor: pointer;
     color: black;
@@ -268,9 +278,9 @@ h1 {
 
 .modal-image {
     width: 100%;
-    max-width: 250px;
+    max-width: 15.625rem;
     height: auto;
-    margin-bottom: 15px;
+    margin-bottom: 1rem;
 }
 
 .modal-text {
@@ -280,16 +290,13 @@ h1 {
     margin: 8px 0;
 }
 
-/* Responsive Adjustments */
 @media (max-width: 480px) {
     .modal-content {
-        padding: 16px 20px;
+        padding: 1rem 1.25rem;
     }
 
     .close-btn {
         font-size: 2rem;
-        top: 5px;
-        right: 10px;
     }
 
     .modal-text {
@@ -297,23 +304,20 @@ h1 {
     }
 }
 
-/* Letter Modal */
 .letter-style {
     font-family: 'Delius', cursive;
     background-color: #fff8dc;
     border: 2px dashed #d55882;
-    padding: 30px;
-    font-size: 1.2rem;
+    padding: 1.875rem;
+    font-size: 1.125rem;
     position: relative;
     max-height: 80vh;
     overflow-y: auto;
-    max-width: 700px;
-    margin: 40px auto;
-    /* centers horizontally with margin at top */
+    max-width: 43.75rem;
+    margin: 2.5rem auto;
     box-sizing: border-box;
 }
 
-/* Responsive text alignment (not centered) */
 .letter-heading {
     font-size: 2rem;
     margin-bottom: 20px;
@@ -327,15 +331,12 @@ h1 {
     text-align: left;
 }
 
-/* Arrow styles */
-/* Arrow wrapper to align it right */
 .surprise-container {
     display: flex;
     justify-content: flex-end;
     width: 100%;
 }
 
-/* Arrow styles */
 .next-arrow {
     font-size: 2.5rem;
     font-weight: 900;
@@ -353,15 +354,15 @@ h1 {
 }
 
 .pagination a {
-    color: black;
-    display: inline-block;
-    /* Remove float and use inline-block for centering */
-    padding: 8px 16px;
+    margin: 0 0.375rem;
+    padding: 0.5rem 1rem;
     text-decoration: none;
-    transition: background-color .3s;
-    float: none;
-    /* Remove float */
+    background-color: transparent;
+    color: #d55882;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
 }
+
 
 .pagination a.active {
     background-color: #d55882;
@@ -372,7 +373,6 @@ h1 {
     background-color: #ddd;
 }
 
-/* Slide Right Animation */
 @keyframes slide-right {
 
     0%,
@@ -385,7 +385,6 @@ h1 {
     }
 }
 
-/* Responsive tweak */
 @media screen and (max-width: 600px) {
     .arrow-container {
         justify-content: center;
@@ -397,17 +396,31 @@ h1 {
     }
 }
 
-/* Video Section */
 .video-container {
     text-align: center;
-    padding: 40px;
+    padding: 2.5rem;
     background: linear-gradient(to bottom, #0d0d1a, #1c1c2d);
     color: #fff;
-    max-width: 700px;
+    max-width: 43.75rem;
     position: absolute;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
 }
+
+/* @media (max-width: 1000px) {
+    .video-container {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        max-height: 100vh;
+        padding: 1rem;
+        box-sizing: border-box;
+        overflow-y: auto;
+        z-index: 999;
+    }
+} */
+
 
 #videoSection h2 {
     font-family: 'Bitcount Prop Double', sans-serif;
@@ -418,6 +431,14 @@ h1 {
 
 #memoryVideo {
     border: 2px solid white;
+    width: 100%;
+    max-width: 700px;
+}
+
+@media (max-width: 768px) {
+    #memoryVideo {
+        max-width: 100%;
+    }
 }
 
 #loadingSurprise {
@@ -438,14 +459,11 @@ h1 {
 
 .load-gif {
     max-width: 200px;
-    /* Bigger max width */
     width: 60vw;
-    /* Bigger relative width */
     height: auto;
     object-fit: contain;
 }
 
-/* Smaller devices */
 @media (max-width: 380px) {
     .load-gif {
         max-width: 100px;
@@ -453,7 +471,6 @@ h1 {
     }
 }
 
-/* PHOTO SECTION STYLES */
 #photoSection {
     text-align: center;
     padding: 20px;
@@ -462,9 +479,22 @@ h1 {
     margin: 0 auto;
     box-sizing: border-box;
     position: relative;
-    /* changed from absolute */
     width: 90%;
 
+}
+
+@media (max-width: 1000px) {
+    #photoSection {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        max-height: 100vh;
+        padding: 1rem;
+        box-sizing: border-box;
+        overflow-y: auto;
+        z-index: 999;
+    }
 }
 
 #photoSection h2 {
@@ -484,7 +514,6 @@ h1 {
     box-sizing: border-box;
 }
 
-/* Year list - Horizontal scroll */
 .timeline-list {
     display: flex;
     flex-wrap: wrap;
@@ -518,18 +547,14 @@ h1 {
     background-color: #ffc0cb;
 }
 
-
-/* Caption */
 .caption-box {
     font-size: 1rem;
     color: #fff;
     font-style: italic;
 }
 
-/* Pagination - Optional */
 .pagination {
     text-align: center;
-    margin-top: 20px;
 }
 
 .pagination a {
@@ -547,46 +572,56 @@ h1 {
     position: absolute;
 }
 
+@media (max-width: 1000px) {
+    .bdayletter-container {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        max-height: 100vh;
+        padding: 1rem;
+        box-sizing: border-box;
+        overflow-y: auto;
+        z-index: 999;
+    }
+}
+
 #bdayLetter h2 {
     font-family: 'Bitcount Prop Double', sans-serif;
-    font-size: 2.5rem;
-    margin-bottom: 20px;
     color: #d55882;
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    margin-bottom: 1rem;
+    text-align: center;
 }
 
 .star-map-section {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    max-width: 1000px;
+    max-width: 62.5rem;
     margin: 0 auto;
 }
 
-/* Left column (image) */
 .star-map-frame {
-    max-width: 450px;
+    max-width: 28.125rem;
     width: 100%;
 }
 
-/* Star map image */
 .star-map-img {
     width: 70%;
 }
 
-/* Right column (text) */
 .star-message {
     flex: 1;
-    max-width: 500px;
+    max-width: 31.25rem;
     text-align: left;
-    font-size: 1.2rem;
+    font-size: 1.125rem;
     font-style: italic;
     line-height: 1.8;
     color: #f9e6f0;
 }
 
-/* Responsive */
 @media (max-width: 1000px) {
     .star-map-section {
         flex-direction: column;
@@ -597,13 +632,8 @@ h1 {
         text-align: center;
         font-size: 1rem;
     }
-
-    .page-title {
-        font-size: 2rem;
-    }
 }
 
-/* Modal styles */
 .modal {
     display: none;
     position: fixed;
@@ -629,7 +659,29 @@ h1 {
     top: 50px;
     right: 50px;
     color: black;
-    font-size: 40px;
+    font-size: 2.5rem;
     font-weight: bold;
     cursor: pointer;
+}
+
+.end-container {
+    padding: 20px;
+    background: linear-gradient(to bottom, #0d0d1a, #1c1c2d);
+    color: #fff;
+    text-align: center;
+    position: absolute;
+}
+
+@media (max-width: 1000px) {
+    .end-container {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        max-height: 100vh;
+        padding: 1rem;
+        box-sizing: border-box;
+        overflow-y: auto;
+        z-index: 999;
+    }
 }
