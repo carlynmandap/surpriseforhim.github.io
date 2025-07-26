@@ -13,6 +13,17 @@ function playAudio() {
     }, 600);
 }
 
+function openModal(imgElement) {
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
+    modal.style.display = "block";
+    modalImg.src = imgElement.src;
+}
+
+function closeModal() {
+    document.getElementById("imageModal").style.display = "none";
+}
+
 window.addEventListener('DOMContentLoaded', () => {
     const nahhBtn = document.getElementById("noBtn");
     const nahhModal = document.getElementById("nahhModal");
@@ -95,6 +106,7 @@ So embrace yourself, because this page is filled with our memories and all the l
     const sections = {
         1: document.getElementById('videoSection'),
         2: document.getElementById('photoSection'),
+        3: document.getElementById('bdayLetter')
     };
 
     function updatePagination(page) {
