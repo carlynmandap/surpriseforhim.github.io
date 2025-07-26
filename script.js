@@ -102,10 +102,6 @@ So embrace yourself, because this page is filled with our memories and all the l
         attributeFilter: ['class']
     });
 
-    // ===========================
-    // New functionality for photo hover and click
-    // ===========================
-
     const previewStack = document.getElementById('previewStack');
     const captionBox = document.getElementById('captionBox');
 
@@ -114,17 +110,14 @@ So embrace yourself, because this page is filled with our memories and all the l
             const images = this.getAttribute('data-images').split(',');
             const captions = this.getAttribute('data-captions').split(',');
 
-            // Clear any previous images from the stack
             previewStack.innerHTML = '';
 
-            // Create new images and add them to the stack
             images.forEach((imgSrc, index) => {
                 const imgElement = document.createElement('img');
                 imgElement.src = imgSrc;
                 imgElement.classList.add('visible');
                 imgElement.setAttribute('data-caption', captions[index]);
 
-                // Clicking an image shows the caption
                 imgElement.addEventListener('click', function () {
                     const caption = this.getAttribute('data-caption');
                     captionBox.textContent = caption;
@@ -132,15 +125,14 @@ So embrace yourself, because this page is filled with our memories and all the l
 
                 previewStack.appendChild(imgElement);
 
-                // Delay adding visibility to each image
                 setTimeout(() => {
                     imgElement.classList.add('visible');
-                }, index * 300); // Delay based on index
+                }, index * 300);
             });
         });
 
         item.addEventListener('mouseleave', function () {
-            previewStack.innerHTML = ''; // Clear the stack
+            previewStack.innerHTML = '';
             captionBox.textContent = "Hover on a year to see memories..."; // Reset caption
         });
     });
@@ -211,6 +203,29 @@ So embrace yourself, because this page is filled with our memories and all the l
     //         captionBox.textContent = caption;
     //     });
     // });
+
+    // Modal handling
+    const giftEmoji = document.getElementById('giftEmoji');
+    const giftModal = document.getElementById('gift-modal');
+    const closeModal = document.getElementById('close-modal');
+
+    if (giftEmoji) {
+        giftEmoji.addEventListener('click', () => {
+            giftModal.style.display = 'block';
+        });
+    }
+
+    if (closeModal) {
+        closeModal.addEventListener('click', () => {
+            giftModal.style.display = 'none';
+        });
+    }
+
+    window.addEventListener('click', (e) => {
+        if (e.target === giftModal) {
+            giftModal.style.display = 'none';
+        }
+    });
 
 
 });
