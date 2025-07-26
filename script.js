@@ -82,7 +82,7 @@ So embrace yourself, because this page is filled with our memories and all the l
         if (i < message.length) {
             typedLetter.innerHTML += message.charAt(i) === "\n" ? "<br>" : message.charAt(i);
             i++;
-            setTimeout(typeLetter, 60);
+            setTimeout(typeLetter, 4);
         } else {
             arrowBtn.style.display = "block";
         }
@@ -100,6 +100,49 @@ So embrace yourself, because this page is filled with our memories and all the l
     observer.observe(letterModal, {
         attributes: true,
         attributeFilter: ['class']
+    });
+
+    // ===========================
+    // New functionality for photo hover and click
+    // ===========================
+
+    const previewStack = document.getElementById('previewStack');
+    const captionBox = document.getElementById('captionBox');
+
+    document.querySelectorAll('.timeline-list li').forEach(item => {
+        item.addEventListener('mouseenter', function () {
+            const images = this.getAttribute('data-images').split(',');
+            const captions = this.getAttribute('data-captions').split(',');
+
+            // Clear any previous images from the stack
+            previewStack.innerHTML = '';
+
+            // Create new images and add them to the stack
+            images.forEach((imgSrc, index) => {
+                const imgElement = document.createElement('img');
+                imgElement.src = imgSrc;
+                imgElement.classList.add('visible');
+                imgElement.setAttribute('data-caption', captions[index]);
+
+                // Clicking an image shows the caption
+                imgElement.addEventListener('click', function () {
+                    const caption = this.getAttribute('data-caption');
+                    captionBox.textContent = caption;
+                });
+
+                previewStack.appendChild(imgElement);
+
+                // Delay adding visibility to each image
+                setTimeout(() => {
+                    imgElement.classList.add('visible');
+                }, index * 300); // Delay based on index
+            });
+        });
+
+        item.addEventListener('mouseleave', function () {
+            previewStack.innerHTML = ''; // Clear the stack
+            captionBox.textContent = "Hover on a year to see memories..."; // Reset caption
+        });
     });
 
     const paginationLinks = document.querySelectorAll('.pagination a');
@@ -157,17 +200,17 @@ So embrace yourself, because this page is filled with our memories and all the l
         }
     });
 
-    const previewImg = document.getElementById('previewImg');
-    const captionBox = document.getElementById('captionBox');
+    // const previewImg = document.getElementById('previewImg');
+    // const captionBox = document.getElementById('captionBox');
 
-    document.querySelectorAll('.timeline-list li').forEach(item => {
-        item.addEventListener('mouseenter', function () {
-            const imgSrc = this.getAttribute('data-img');
-            const caption = this.getAttribute('data-caption');
-            previewImg.src = imgSrc;
-            captionBox.textContent = caption;
-        });
-    });
+    // document.querySelectorAll('.timeline-list li').forEach(item => {
+    //     item.addEventListener('mouseenter', function () {
+    //         const imgSrc = this.getAttribute('data-img');
+    //         const caption = this.getAttribute('data-caption');
+    //         previewImg.src = imgSrc;
+    //         captionBox.textContent = caption;
+    //     });
+    // });
 
 
 });
