@@ -1,14 +1,14 @@
 body {
-    margin: 0;
     padding: 0;
     font-family: "Outfit", sans-serif;
     background: url('../images/background.jpg') no-repeat center center;
     background-size: cover;
-    height: 100vh;
+    height: auto;
+    min-height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 @media (max-width: 768px) {
@@ -109,23 +109,19 @@ h1 {
 }
 
 .center-box {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
     background-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    padding: 40px 30px;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(2px);
     text-align: center;
-    max-width: 400px;
-    width: 90%;
-    position: absolute;
     z-index: 999;
-    opacity: 1;
-    transform: scale(1);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-    position: absolute;
-    width: 100vw;
+    padding: 40px 30px;
+    box-sizing: border-box;
     overflow-y: auto;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -154,7 +150,7 @@ h1 {
 }
 
 #letterSection {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
@@ -402,7 +398,6 @@ h1 {
     background: linear-gradient(to bottom, #0d0d1a, #1c1c2d);
     color: #fff;
     max-width: 700px;
-    margin: 0 auto;
     position: relative;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
@@ -414,12 +409,13 @@ h1 {
         top: 0;
         left: 0;
         width: 100%;
-        height: 100vh;
         min-height: 100vh;
+        height: auto;
         padding: 1rem;
         box-sizing: border-box;
-        overflow-y: auto;
+        overflow-x: hidden;
         z-index: 999;
+        position: relative;
     }
 }
 
@@ -433,8 +429,8 @@ h1 {
 
 #memoryVideo {
     border: 2px solid white;
-    width: 100%;
-    max-width: 700px;
+    height: auto;
+    max-width: 100%;
 }
 
 @media (max-width: 768px) {
@@ -475,9 +471,10 @@ h1 {
 
 #photoSection {
     text-align: center;
-    padding: 20px;
+    padding: 50px;
     background: linear-gradient(to bottom, #0d0d1a, #1c1c2d);
     max-width: 700px;
+    height: auto;
     margin: 0 auto;
     box-sizing: border-box;
     position: relative;
@@ -566,7 +563,7 @@ h1 {
     background: linear-gradient(to bottom, #0d0d1a, #1c1c2d);
     color: #fff;
     text-align: center;
-    position: absolute;
+    position: relative;
 }
 
 @media (max-width: 1000px) {
@@ -663,7 +660,7 @@ h1 {
     background: linear-gradient(to bottom, #0d0d1a, #1c1c2d);
     color: #fff;
     text-align: center;
-    position: absolute;
+    position: relative;
 }
 
 @media (max-width: 1000px) {
@@ -679,6 +676,7 @@ h1 {
         z-index: 999;
     }
 }
+
 
 .preview-stack {
     display: flex;
@@ -737,31 +735,8 @@ h1 {
     color: #fff;
     font-style: italic;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 300px;
     padding: 10px;
-}
-
-
-.end-container {
-    padding: 20px;
-    background: linear-gradient(to bottom, #0d0d1a, #1c1c2d);
-    color: #fff;
-    text-align: left;
-    position: absolute;
-}
-
-@media (max-width: 1000px) {
-    .end-container {
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        min-height: 100vh;
-        padding: 1rem;
-        box-sizing: border-box;
-        overflow-y: auto;
-        z-index: 999;
-    }
 }
 
 #lastSection h2 {
