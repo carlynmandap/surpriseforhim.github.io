@@ -4,7 +4,7 @@ body {
     background: url('../images/background.jpg') no-repeat center center;
     background-size: cover;
     height: auto;
-    min-height: 100%;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -479,7 +479,6 @@ h1 {
     box-sizing: border-box;
     position: relative;
     width: 90%;
-
 }
 
 @media (max-width: 1000px) {
@@ -705,7 +704,6 @@ h1 {
 .image-holder {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    /* a bit wider */
     gap: 12px;
     width: 100%;
     padding: 10px;
@@ -735,7 +733,6 @@ h1 {
     color: #fff;
     font-style: italic;
     text-align: center;
-    margin-top: 300px;
     padding: 10px;
 }
 
